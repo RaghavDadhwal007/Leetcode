@@ -1,0 +1,13 @@
+class Solution:
+    def majorityElement(self, nums: List[int]) -> int:
+        majorityElement = 0
+        records = {0:0}
+        for num in nums:
+            if num in records:
+                records[num] +=1
+            else:
+                records[num] = 1
+            if (records[num] > records[majorityElement]):
+                majorityElement = num
+
+        return majorityElement
