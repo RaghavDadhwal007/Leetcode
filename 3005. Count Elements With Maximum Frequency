@@ -1,0 +1,19 @@
+class Solution:
+    def maxFrequencyElements(self, nums: List[int]) -> int:
+        result = 0
+        mostFrequent = 0
+        occurenceDict = {}
+        for i in nums:
+            if (i in occurenceDict):
+                occurenceDict[i] += 1
+            else:
+                occurenceDict[i] = 1
+            if (occurenceDict[i] > mostFrequent):
+                mostFrequent = occurenceDict[i]
+        
+        for key in occurenceDict:
+            if(occurenceDict[key] == mostFrequent):
+                result += occurenceDict[key]
+
+        return result
+        
