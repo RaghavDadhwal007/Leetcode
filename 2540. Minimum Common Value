@@ -1,0 +1,13 @@
+class Solution:
+    def getCommon(self, nums1: List[int], nums2: List[int]) -> int:
+        result = -1
+        firstArr = {}
+        for i in nums1:
+            firstArr[i] = True
+        
+        for i in nums2:
+            if i in firstArr:
+                result = i
+                break
+
+        return result
