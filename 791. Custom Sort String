@@ -1,0 +1,22 @@
+class Solution:
+    def customSortString(self, order: str, s: str) -> str:
+        orderIndex = {}
+        sortedPart = ''
+        remainingPart = ''
+
+        for i in order:
+            orderIndex[i] = ['', False]
+
+        for i in s:
+            if i not in order:
+                remainingPart += i
+            else:
+                orderIndex[i][0] += i
+                orderIndex[i][1] = True
+
+        for i in orderIndex:
+            if orderIndex[i][1]:
+                sortedPart += orderIndex[i][0]
+
+        return sortedPart + remainingPart
+        
